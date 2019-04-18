@@ -75,7 +75,7 @@ def get_president_start_term_info(president_infos):
     for president_info in president_infos:
         if "-" in president_info.tm:
             president_info.tm = president_info.tm.split("-")[0]
-            presidents.append(president_info)
+        presidents.append(president_info)
     return presidents
 
 
@@ -87,10 +87,9 @@ def __get_century_for_year(year):
 
 
 def get_century_wise_presidents(president_infos):
-    for president_info in president_infos:
-        president_info.century = __get_century_for_year(int(president_info.tm))
     output = {}
     for president_info in president_infos:
+        president_info.century = __get_century_for_year(int(president_info.tm))
         if president_info.century in output:
             output[president_info.century].append(president_info)
         else:
